@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat</title>
+    <style>
+        :root{--border-color:#666;--main-color:#000;--bg-color:#4b9ec1}
+        html,body{width:100%;height:100%;margin:0;padding:0;display:flex;align-items:center;justify-content:center}
+        .flex{display:flex;align-items:center;flex-direction:column}
+        .edging{width:600px;height:800px;background:var(--bg-color);border:30px solid var(--border-color);
+            position:relative;overflow:hidden;justify-content:center}
+        .wrap{filter:url(#fractal);width:450px;height:450px;background:#fff;border-radius:5%;
+            box-shadow:5px 5px 8px 1px rgba(0,0,0,0.5);*{position:absolute}
+        *::before,*::after{position:absolute;content:""}
+        }.wrap::before{width:25px;height:25px;border-radius:50%;background:var(--bg-color);content:"";
+        position:absolute;top:30px;left:30px;box-shadow:inset 2px 2px 5px 1px rgba(0,0,0,0.5)}
+        .foot{width:20px;height:13px;border-radius:50%;background:var(--main-color);top:187px;left:100px}
+        .foot::before,.foot::after{width:5px;height:8px;border-radius:50%;background:var(--main-color);
+            box-shadow:13px 6px 0 0 var(--main-color)}
+        .foot::before{transform:rotate(-45deg);top:-8px;left:-8px}
+        .foot::after{transform:rotate(34deg);top:-12px;left:17px}
+        .cat{width:60px;height:103px;background:transparent;top:200px;left:229px;*{box-sizing:border-box}
+        }.cat__head{width:40px;height:35px;border-radius:50%;background-color:#fff;border:2px solid var(--main-color)}
+        .cat__head::before{z-index:10;width:24px;height:20px;background:#fff;top:18px;left:8px}
+        .cat__head::after{width:34px;height:26px;border-radius:50%;background-color:#fff;left:2px}
+        .cat__ear--left,.cat__ear--right{width:20px;height:20px;top:-8px}
+        .cat__ear--left::before,.cat__ear--right::before{width:8px;height:69px;background:#fff;border-radius:50%;top:1px}
+        .cat__ear--left{left:1px;background:linear-gradient(to bottom left,transparent 50%,var(--main-color) 50%)}
+        .cat__ear--right{right:2px;background:linear-gradient(to bottom right,transparent 50%,var(--main-color) 50%)}
+        .cat__ear--left::before{left:9px;transform:rotate(-19deg)}
+        .cat__ear--right::before{right:9px;transform:rotate(19deg)}
+        .cat__body{width:45px;height:82px;top:20px;border-radius:50% 50% 30% 30%;background-color:#fff;
+            border:2px solid var(--main-color)}
+        .cat__tail{width:68px;height:50px;border-radius:50%;top:53px;background:transparent;
+            border-right:4px solid #fff;left:-15px;box-shadow:2px 0 0 0 var(--main-color),inset -2px 0 0 0 var(--main-color)}
+        .cat--left{top:206px;left:174px;transform:scale(0.9)}
+        .cat--left .cat__head{background:var(--main-color)}
+        .cat--left .cat__head::before,.cat--left .cat__head::after,.cat--left .cat__ear--left::before,
+        .cat--left .cat__ear--right::before{display:none}
+        .cat--left .cat__body{background:var(--main-color)}
+        .cat--left .cat__tail{border-right-color:var(--main-color)}
+        .ground{width:90%;height:3px;top:300px;left:50%;transform:translateX(-50%);background:var(--main-color)}
+        .tips{font-weight:bold;font-size:14px;font-style:italic;bottom:105px;right:90px}
+    </style>
+</head>
+
+<body>
+    <div class="edging flex">
+        <div class="wrap">
+            <div class="foot"></div>
+            <div class="cat">
+                <div class="cat__head">
+                    <div class="cat__ear--left"></div>
+                    <div class="cat__ear--right"></div>
+                </div>
+                <div class="cat__body"></div>
+                <div class="cat__tail"></div>
+            </div>
+            <div class="cat cat--left">
+                <div class="cat__head">
+                    <div class="cat__ear--left"></div>
+                    <div class="cat__ear--right"></div>
+                </div>
+                <div class="cat__body"></div>
+                <div class="cat__tail"></div>
+            </div>
+            <div class="ground"></div>
+            <div class="tips">前端的美</div>
+        </div>
+        <svg width="0" height="0">
+            <defs>
+                <filter id="fractal">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="fontNoise" />
+                    <feDisplacementMap in="SourceGraphic" in2="fontNoise" scale="8" />
+                </filter>
+            </defs>
+        </svg>
+    </div>
+</body>
+</html>
