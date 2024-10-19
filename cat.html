@@ -10,18 +10,19 @@
         .flex{display:flex;align-items:center;flex-direction:column}
         .edging{width:600px;height:800px;background:var(--bg-color);border:30px solid var(--border-color);
             position:relative;overflow:hidden;justify-content:center}
-        .wrap{filter:url(#fractal);width:450px;height:450px;background:#fff;border-radius:5%;
-            box-shadow:5px 5px 8px 1px rgba(0,0,0,0.5);*{position:absolute}
-        *::before,*::after{position:absolute;content:""}
-        }.wrap::before{width:25px;height:25px;border-radius:50%;background:var(--bg-color);content:"";
+        .wrap{filter:url(#fractal);width:450px;height:450px;background:#fff;border-radius:5%;box-shadow:5px 5px 8px 1px rgba(0,0,0,0.5)}
+        .wrap *{position:absolute}
+        .wrap *::before,.wrap *::after{position:absolute;content:""}
+        .wrap::before{width:25px;height:25px;border-radius:50%;background:var(--bg-color);content:"";
         position:absolute;top:30px;left:30px;box-shadow:inset 2px 2px 5px 1px rgba(0,0,0,0.5)}
         .foot{width:20px;height:13px;border-radius:50%;background:var(--main-color);top:187px;left:100px}
         .foot::before,.foot::after{width:5px;height:8px;border-radius:50%;background:var(--main-color);
             box-shadow:13px 6px 0 0 var(--main-color)}
         .foot::before{transform:rotate(-45deg);top:-8px;left:-8px}
         .foot::after{transform:rotate(34deg);top:-12px;left:17px}
-        .cat{width:60px;height:103px;background:transparent;top:200px;left:229px;*{box-sizing:border-box}
-        }.cat__head{width:40px;height:35px;border-radius:50%;background-color:#fff;border:2px solid var(--main-color)}
+        .cat{width:60px;height:103px;background:transparent;top:200px;left:229px}
+        .cat *{box-sizing:border-box}
+        .cat__head{width:40px;height:35px;border-radius:50%;background-color:#fff;border:2px solid var(--main-color)}
         .cat__head::before{z-index:10;width:24px;height:20px;background:#fff;top:18px;left:8px}
         .cat__head::after{width:34px;height:26px;border-radius:50%;background-color:#fff;left:2px}
         .cat__ear--left,.cat__ear--right{width:20px;height:20px;top:-8px}
